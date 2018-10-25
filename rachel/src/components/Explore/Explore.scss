@@ -1,0 +1,121 @@
+$lighten: rgba(255,255,255,.7);
+$darken: rgba(0,0,0,.8);
+
+body {
+  background: $lighten;
+}
+
+.bg-img {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  position: absolute;
+  background-size: cover !important;
+  
+  &.fade-bg {
+    animation: fade-bg 1000ms 1 ease-in;
+  }
+}
+
+.app {
+  z-index: 100;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  padding: 4vh;
+  background: $lighten;
+  border-radius: 2px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70vh;
+
+  img {
+    max-width: 70vh;
+    border-radius: 2px;
+    z-index: 10;
+    position: absolute;
+    
+    &.shadow {
+      position: relative;
+      z-index: 0;
+      filter: blur(20px);
+		  top: 20px;
+    }
+  }
+  
+  &.fade {
+    animation: fadeIn 1000ms 1 ease-in;
+  }
+}
+
+.controls {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  
+  &.stretch-controls {
+    animation: 
+      stretch-controls 500ms 1 cubic-bezier(
+        0.250, 0.460, 0.450, 0.940
+    );
+  }
+  
+  li {
+    min-width: 1.5vw;
+    height: 100%;
+    cursor: pointer;
+    transform: scale(1);
+    background: transparent;
+    border-top: 1px solid $darken;
+    border-left: 1px solid $darken;
+    background: transparent;
+    
+    
+    &.selected {
+      background: $darken;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  20%  { opacity: 0; transform: translateX(-5vw); }
+  60%  { transform: translateX(0vw); }
+  80%  { opcaity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-bg {
+  0%   { opacity: 0; }
+  20%  { opacity: 0; }
+  80%  { opcaity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes stretch-controls {
+  0%   { height: 87vh; opacity: 0; }
+  50%  { height: 57vh; }
+  100% { height: 87vh; opacity: 1; }
+  
+}
