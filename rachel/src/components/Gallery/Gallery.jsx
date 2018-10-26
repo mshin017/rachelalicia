@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Explore.scss'
+import './Gallery.scss'
 import army from "../../images/army.jpg"
 import beach from '../../images/beach.jpg'
 import bed from '../../images/bed.JPEG'
@@ -20,7 +20,7 @@ const images = [
     army, beach, bed, bed2, pool, pool2, pyramid, pyramid2, pyramid3, wall, breezy, dtla, gang, rooftop1,
 ];
 
-export default class Explore extends Component {
+export default class Gallery extends Component {
     constructor() {
         super();
 
